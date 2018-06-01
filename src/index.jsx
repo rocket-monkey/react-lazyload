@@ -242,6 +242,10 @@ class LazyLoad extends Component {
       if (resize) {
         on(window, 'resize', finalLazyLoadHandler, passiveEvent);
       }
+
+      if (!window.REACT_LAZY_LOAD_HANDLER) {
+        window.REACT_LAZY_LOAD_HANDLER = finalLazyLoadHandler
+      }
     }
 
     listeners.push(this);
